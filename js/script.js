@@ -19,64 +19,36 @@ var getPwdLength = function() {
 
 var getPwdLower = function() {
 
-  var lowerCase = prompt("Would you like to include lower case characters (yes or no)?")
-  lowerCase = lowerCase.toLowerCase();
-  console.log(lowerCase);
-  if (lowerCase != "yes" && lowerCase != "no") {
-    alert("Please tell me if you'd like to use lower case characters in your password, type either yes, or no:");
-    return getPwdLower();
-  } else {
-    alert("Excellent, you answered " + lowerCase + " to having lower case characters");
-    return lowerCase;
-  }
+  var checkState = document.getElementById("lower-case").checked;
+  
+  return checkState;
 
 }
 
 
 var getPwdUpper = function() {
 
-  var upperCase = prompt("Would you like to include upper case characters (yes or no)?")
-  upperCase = upperCase.toLowerCase();
-  console.log(upperCase);
-  if (upperCase != "yes" && upperCase != "no") {
-    alert("Please tell me if you'd like to use upper case characters in your password, type either yes, or no:");
-    return getPwdUpper();
-  } else {
-    alert("Excellent, you answered " + upperCase + " to having upper case characters");
-    return upperCase;
-  }
+  var checkState = document.getElementById("upper-case").checked;
+  
+  return checkState;
 
 }
 
 
 var getPwdNumeric = function() {
 
-  var numericCharacters = prompt("Would you like to include numeric characters (yes or no)?")
-  numericCharacters = numericCharacters.toLowerCase();
-  console.log(numericCharacters);
-  if (numericCharacters != "yes" && numericCharacters != "no") {
-    alert("Please tell me if you'd like to use numeric characters in your password, type either yes, or no:");
-    return getPwdNumeric();
-  } else {
-    alert("Excellent, you answered " + numericCharacters + " to having numeric case characters");
-    return numericCharacters;
-  }
+  var checkState = document.getElementById("numeric-case").checked;
+  
+  return checkState;
 
 }
 
 
 var getPwdSpecial = function() {
 
-  var specialCharacters = prompt("Would you like to include special characters (yes or no)?")
-  specialCharacters = specialCharacters.toLowerCase();
-  console.log(specialCharacters);
-  if (specialCharacters != "yes" && specialCharacters != "no") {
-    alert("Please tell me if you'd like to use special characters in your password, type either yes, or no:");
-    return getPwdSpecial();
-  } else {
-    alert("Excellent, you answered " + specialCharacters + " to having special characters");
-    return specialCharacters;
-  }
+  var checkState = document.getElementById("special-case").checked;
+  
+  return checkState;
   
 }
 
@@ -92,10 +64,9 @@ var generatePassword = function() {
     special: getPwdSpecial()
   }
 
-
-  if (pwReq.lower == "no" && pwReq.upper == "no" && pwReq.numeric == "no" && pwReq.special == "no") {
+  if (pwReq.lower == false && pwReq.upper == false && pwReq.numeric == false && pwReq.special == false) {
     alert("You have to select at least one category: lower case, upper case, numeric or special characters. Please try again.");
-    generatePassword();
+    return;
   } else {
     alert("generating password");
     const lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -109,18 +80,15 @@ var generatePassword = function() {
     var passwordPool = [ ];
     var password = "";
 
-    if (pwReq.lower == "yes") {passwordPool = passwordPool.concat(lowerCase)};
-    if (pwReq.upper == "yes") {passwordPool = passwordPool.concat(upperCase)};
-    if (pwReq.numeric == "yes") {passwordPool = passwordPool.concat(numeric)};
-    if (pwReq.special == "yes") {passwordPool = passwordPool.concat(special)};
+    if (pwReq.lower == true) {passwordPool = passwordPool.concat(lowerCase)};
+    if (pwReq.upper == true) {passwordPool = passwordPool.concat(upperCase)};
+    if (pwReq.numeric == true) {passwordPool = passwordPool.concat(numeric)};
+    if (pwReq.special == true) {passwordPool = passwordPool.concat(special)};
         
     var char = "";
     for (i=0; i < pwReq.length; i++) {
-      //console.log("Inside for loop, pwReq length is: " + pwReq.length);
       char = Math.floor(Math.random() * passwordPool.length); 
-      //console.log("Char value: " + char + "\n" + "Iteration: " + i);
       password = password + passwordPool[char];
-      //console.log("Value of password: " + password);
     }
     
     return password;

@@ -72,6 +72,11 @@ header {
   clear: both;
 }
 
+.checkboxes {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -133,5 +138,10 @@ button[disabled] {
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
   }
 }
