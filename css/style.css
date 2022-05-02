@@ -123,6 +123,26 @@ button[disabled] {
   overflow: hidden;
 }
 
+.pwd-input-box {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pwd-input-box input {
+  font-size: 1.17em;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.pwd-input-box label {
+  margin-right: 10px;
+}
+
+.pwd-input-box input:focus {
+  outline: none;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

@@ -2,18 +2,18 @@
 
 var getPwdLength = function() {
 
-  var passwordLength = prompt("How many characters will your password contain?");
-
+  var passwordLength = document.getElementById("pwd-input-box").value;
+  
   passwordLength = parseInt(passwordLength);
   console.log(passwordLength);
   
   if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     alert("A strong password requres a length between 8 and 128 characters, please enter a number between 8 and 128:");
-    return getPwdLength();
+    document.getElementById("pwd-input-box").focus();
   } else {
-    alert("Excellent, you requested a " + passwordLength + " character password!");
     return passwordLength;  
   }
+
 } 
 
 
@@ -54,8 +54,8 @@ var getPwdSpecial = function() {
 
 
 var generatePassword = function() {
-   // creating password requirements object
-  alert("Hello, I will generate a strong password for you. But first, I have a few question. Let's get started!");
+  
+  // creating password requirements object
   var pwReq = {
     length: getPwdLength(),
     lower: getPwdLower(),
@@ -68,7 +68,6 @@ var generatePassword = function() {
     alert("You have to select at least one category: lower case, upper case, numeric or special characters. Please try again.");
     return;
   } else {
-    alert("generating password");
     const lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     
     const upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -94,6 +93,7 @@ var generatePassword = function() {
     return password;
    
   }
+  
 }
 
 // Provided content starts here
