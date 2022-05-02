@@ -11,16 +11,16 @@ Alert boxes are still used for input validation errors such as password length v
 
 ## Screenshots
 
-Desktop main screen
+Desktop main screen  
 ![screenshot desktop main](images/screenshot-desktop-main.jpg)
 
-Desktop example with generated password
+Desktop example with generated password  
 ![screenshot desktop example](images/screenshot-desktop-example.jpg)
 
-Mobile main screen
+Mobile main screen  
 ![screenshot mobile main](images/screenshot-mobile-main.jpg)
 
-Mobile example with generated password
+Mobile example with generated password  
 ![screenshot mobile example](images/screenshot-mobile-example.jpg)
 
 ## Live Site
